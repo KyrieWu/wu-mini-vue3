@@ -1,4 +1,4 @@
-export function isObject(val: object) {
+export function isObject(val: unknown) {
   return typeof val === "object" && val !== null;
 }
 
