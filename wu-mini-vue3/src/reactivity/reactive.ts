@@ -1,5 +1,5 @@
 import { mutableHandlers, shallowReactiveHandlers } from "./baseHandlers";
-import { isObject } from "@/shared";
+import { isObject } from "../shared";
 
 export const enum ReactiveFlags {
   IS_REACTIVE = "__v_isReactive",

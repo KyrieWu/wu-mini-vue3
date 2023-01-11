@@ -1,6 +1,6 @@
 import { track, trigger } from "./effect";
 import { toReactive } from "./reactive";
-import { isObject } from "@/shared";
+import { isObject } from "../shared";
 
 declare const RefSymbol: unique symbol;
 

@@ -6,7 +6,7 @@ import {
   shallowReactiveMap,
   Target,
 } from "./reactive";
-import { isObject, hasOwn } from "@/shared";
+import { isObject, hasOwn } from "../shared/index";
 
 const get = createGetter();
 const set = createSetter();

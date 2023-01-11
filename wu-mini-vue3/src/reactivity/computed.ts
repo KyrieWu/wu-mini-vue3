@@ -25,7 +25,7 @@ export function computed<T>(
 }
 
 class ComputedRefImpl<T> {
-  private _val:any;
+  private _val: any;
   public _dirty = true;
   public readonly effect;
   constructor(
@@ -39,13 +39,13 @@ class ComputedRefImpl<T> {
       scheduler: () => {
         if (!this._dirty) {
           this._dirty = true;
-          trigger(this, 'set',"value");
+          trigger(this, "set", "value");
         }
       },
     });
   }
   get value() {
-    track(this,'get' "value");
+    track(this, "get", "value");
     if (this._dirty) {
       this._dirty = false;
       this._val = this.effect();
