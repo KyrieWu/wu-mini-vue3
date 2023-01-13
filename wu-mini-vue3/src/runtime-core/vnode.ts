@@ -11,7 +11,7 @@ export interface VNode<HostNode = RendererNode> {
   key: string | number | symbol | null;
   props: VNodeProps | null;
   shapeFlag: number;
-  component: null;
+  component: any;
   el: HostNode | null;
   children: null;
 }
@@ -46,6 +46,7 @@ export function createVNode(
     key: props?.key,
     el: null,
     component: null, // 组件的实例
+    appContext: null,
   };
   return vnode;
 }
