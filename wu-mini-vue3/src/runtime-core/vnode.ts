@@ -6,6 +6,17 @@ export type VNodeProps = {
   key?: string | number | symbol;
 };
 
+type VNodeChildAtom =
+  | VNode
+  | string
+  | number
+  | boolean
+  | null
+  | undefined
+  | void;
+
+export type VNodeArrayChildren = Array<VNodeArrayChildren | VNodeChildAtom>;
+
 export interface VNode<HostNode = RendererNode> {
   type: any;
   key: string | number | symbol | null;
