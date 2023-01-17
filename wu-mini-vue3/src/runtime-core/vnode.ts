@@ -16,6 +16,10 @@ type VNodeChildAtom =
   | void;
 
 export type VNodeArrayChildren = Array<VNodeArrayChildren | VNodeChildAtom>;
+export type VNodeNormalizedChildren =
+  | string
+  | VNodeArrayChildren
+  | null
 
 export interface VNode<HostNode = RendererNode> {
   type: any;
@@ -24,7 +28,7 @@ export interface VNode<HostNode = RendererNode> {
   shapeFlag: number;
   component: any;
   el: HostNode | null;
-  children: null;
+  children: VNodeNormalizedChildren;
 }
 
 export function createVNode(
@@ -38,10 +42,10 @@ export function createVNode(
     typeof type == "string"
       ? ShapeFlags.ELEMENT
       : type == Text
-      ? ShapeFlags.TEXT
-      : typeof type == "function" || typeof type.render == "function"
-      ? ShapeFlags.COMPONENT
-      : 0;
+        ? ShapeFlags.TEXT
+        : typeof type == "function" || typeof type.render == "function"
+          ? ShapeFlags.COMPONENT
+          : 0;
 
   if (typeof children === "string") {
     shapeFlag != ShapeFlags.TEXT_CHILDREN;
